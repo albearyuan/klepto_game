@@ -25,7 +25,9 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown("r")) {
+            Respawn();
+        }
     }
 
     public void DamagePlayer(int damage) {
@@ -50,11 +52,7 @@ public class HealthManager : MonoBehaviour
         healthText.text = "Health: " + currentHealth;
     }
 
-    public void HealPlayer(int heal) {
-        currentHealth += heal;
-
-        if (currentHealth > maxHealth) {
-            currentHealth = maxHealth;
-        }
+    public void SetSpawnPoint() {
+        respawnLocation = player.transform.position;
     }
 }
